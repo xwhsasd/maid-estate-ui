@@ -1,0 +1,280 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "系统": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "日期": {
+          "default": "星历1248年7月15日",
+          "type": "string"
+        },
+        "时段": {
+          "default": "清晨",
+          "type": "string",
+          "enum": [
+            "清晨",
+            "上午",
+            "午后",
+            "傍晚",
+            "夜晚",
+            "深夜"
+          ]
+        },
+        "场景": {
+          "default": "庄园主楼",
+          "type": "string",
+          "enum": [
+            "庄园主楼",
+            "迷雾森林",
+            "镜面湖泊",
+            "南山",
+            "东滩",
+            "晨风城",
+            "自由港",
+            "其他"
+          ]
+        },
+        "剧情阶段": {
+          "default": "开局探索",
+          "type": "string",
+          "enum": [
+            "开局探索",
+            "经营起步",
+            "扩张期",
+            "鼎盛期"
+          ]
+        }
+      }
+    },
+    "庄园": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "现金": {
+          "default": 5000,
+          "type": "number"
+        },
+        "周收支": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "收入": {
+              "default": 0,
+              "type": "number"
+            },
+            "支出": {
+              "default": 0,
+              "type": "number"
+            }
+          }
+        },
+        "库存": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "description": "资源名"
+          },
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "设施": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "description": "设施名"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "description": "设施状态"
+          }
+        },
+        "待办": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "description": "任务名"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "description": "任务描述"
+          }
+        },
+        "声望": {
+          "default": 0,
+          "type": "number"
+        }
+      }
+    },
+    "女仆": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "description": "女仆名"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "在场": {
+            "default": true,
+            "type": "boolean"
+          },
+          "职级": {
+            "default": "女仆学徒",
+            "type": "string",
+            "enum": [
+              "女仆学徒",
+              "初级女仆",
+              "中级女仆",
+              "高级女仆",
+              "特级女仆",
+              "女仆长",
+              "大女仆长",
+              "大管家"
+            ]
+          },
+          "岗位": {
+            "default": "侍奉服务",
+            "type": "string"
+          },
+          "好感": {
+            "default": 0,
+            "type": "number"
+          },
+          "魅力": {
+            "default": 50,
+            "type": "number"
+          },
+          "实力": {
+            "default": "普通",
+            "type": "string"
+          },
+          "战斗属性": {
+            "default": {},
+            "type": "object",
+            "properties": {
+              "HP": {
+                "default": 100,
+                "type": "number"
+              },
+              "ATK": {
+                "default": 10,
+                "type": "number"
+              },
+              "DEF": {
+                "default": 10,
+                "type": "number"
+              },
+              "技能": {
+                "default": {},
+                "type": "object",
+                "propertyNames": {
+                  "type": "string",
+                  "description": "技能名"
+                },
+                "additionalProperties": {
+                  "type": "string",
+                  "description": "技能描述"
+                }
+              }
+            }
+          },
+          "状态": {
+            "default": "空闲",
+            "type": "string"
+          },
+          "近期事件": {
+            "default": "",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "主角": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "状态": {
+          "default": "健康",
+          "type": "string"
+        },
+        "物品": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "description": "物品名"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "description": "物品描述"
+          }
+        },
+        "线索": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "description": "线索名"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "description": "线索状态"
+          }
+        }
+      }
+    },
+    "剧情": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "已登场角色": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "description": "角色名"
+          },
+          "additionalProperties": {
+            "type": "boolean"
+          }
+        },
+        "当前任务": {
+          "default": "",
+          "type": "string"
+        },
+        "战斗回合": {
+          "default": 1,
+          "type": "number"
+        },
+        "战斗状态": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "description": "参战者名"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "当前HP": {
+                "default": 100,
+                "type": "number"
+              },
+              "行动顺序": {
+                "default": 1,
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

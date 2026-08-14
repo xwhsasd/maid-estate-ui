@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* 庄园风格：哥特魔幻 + 温馨奶油 */
+  --c-primary: #6b4f8f;      /* 主色：庄园紫 */
+  --c-primary-soft: #f3eef9; /* 主色浅底 */
+  --c-accent: #c9a227;       /* 强调：鎏金 */
+  --c-surface: #faf7f2;      /* 卡片底：奶油 */
+  --c-surface-alt: #f0ebe3;  /* 次级底 */
+  --c-text: #3a3247;         /* 正文 */
+  --c-text-muted: #8a8198;   /* 次要文字 */
+  --c-border: #d9d2c8;       /* 边框 */
+  --c-good: #4a8f6a;         /* 正面状态 */
+  --c-warn: #c07a2e;         /* 中性/警告 */
+  --c-danger: #b04a4a;       /* 负面状态 */
+  --font-maid: 'Georgia', 'Songti SC', 'SimSun', 'Microsoft YaHei', serif;
+}
