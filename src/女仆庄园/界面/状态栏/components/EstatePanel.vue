@@ -8,11 +8,11 @@
       </div>
       <div class="stat">
         <span class="stat-label">声望</span>
-        <span class="stat-value">{{ data.庄园.声望 }}/100</span>
+        <span class="stat-value">{{ data.庄园.声望 }}<span class="stat-max">/100</span></span>
       </div>
       <div class="stat">
         <span class="stat-label">上周收支</span>
-        <span class="stat-value">入 {{ data.庄园.周收支.收入 }} / 出 {{ data.庄园.周收支.支出 }}</span>
+        <span class="stat-value"><span class="income">+{{ data.庄园.周收支.收入 }}</span> / <span class="expense">-{{ data.庄园.周收支.支出 }}</span></span>
       </div>
       <div class="stat">
         <span class="stat-label">设施</span>
@@ -55,27 +55,30 @@ const todoCount = computed(() => todoEntries.value.length);
 .panel {
   background: var(--c-surface);
   border: 1px solid var(--c-border);
-  border-radius: 6px;
-  padding: 8px 12px;
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .panel-title {
   font-weight: bold;
   color: var(--c-primary);
-  margin-bottom: 6px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
   border-bottom: 1px solid var(--c-border);
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 
 .estate-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 6px 12px;
+  gap: 8px 12px;
 }
 
 .stat {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .stat-label {
@@ -87,14 +90,28 @@ const todoCount = computed(() => todoEntries.value.length);
   font-weight: bold;
 }
 
+.stat-max {
+  font-size: 11px;
+  font-weight: normal;
+  color: var(--c-text-muted);
+}
+
 .coin {
   color: var(--c-accent);
 }
 
+.income {
+  color: var(--c-good);
+}
+
+.expense {
+  color: var(--c-danger);
+}
+
 .sub-list {
-  margin-top: 6px;
+  margin-top: 8px;
   border-top: 1px dashed var(--c-border);
-  padding-top: 4px;
+  padding-top: 6px;
 }
 
 .sub-item {
@@ -102,6 +119,7 @@ const todoCount = computed(() => todoEntries.value.length);
   justify-content: space-between;
   gap: 8px;
   font-size: 12px;
+  padding: 1px 0;
 }
 
 .sub-name {
