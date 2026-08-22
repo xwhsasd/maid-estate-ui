@@ -461,6 +461,7 @@ function parse_configuration(entry: Entry): (_env: any, argv: any) => webpack.Co
           // globs: ['src/panel/component/*.vue'],
           resolvers: [VueUseComponentsResolver(), VueUseDirectiveResolver()],
         }),
+<<<<<<< HEAD
         // vue-loader 自动注入的 exportHelper.js 是 CommonJS 模块, 在单文件 ESM 输出中会触发
         // 运行时 `ReferenceError: __webpack_require__ is not defined` (详见 util/export_helper.ts 注释),
         // 因此统一替换为等价的 ESM 版本
@@ -468,6 +469,8 @@ function parse_configuration(entry: Entry): (_env: any, argv: any) => webpack.Co
           /vue-loader[\\/]dist[\\/]exportHelper\.js$/,
           path.join(import.meta.dirname, 'util', 'export_helper.ts'),
         ),
+=======
+>>>>>>> c27dc311feeca88f575184c70cd539091ffeaf47
         new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
         new webpack.DefinePlugin({
           __VUE_OPTIONS_API__: false,
